@@ -70,6 +70,7 @@
 /* Subtle ambient light shift on sections */
 .section-glow {
   position: relative;
+  overflow-x: hidden;
 }
 
 .section-glow::before {
