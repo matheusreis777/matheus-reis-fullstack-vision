@@ -7,7 +7,7 @@ const Footer = () => {
           <p className="font-body text-xs text-muted-foreground">Fullstack Developer</p>
         </div>
         <p className="font-body text-xs text-muted-foreground">
-          © 2026 — Todos os direitos reservados
+          © {new Date().getFullYear()} — Todos os direitos reservados
         </p>
       </div>
     </footer>

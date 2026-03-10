@@ -1,4 +1,4 @@
-import { Brain, MessageSquare, Network, BookOpen, Users, Gauge, Search } from "lucide-react";
+import { Brain, MessageSquare, Network, BookOpen, Users, Gauge, Search, Zap, Clock } from "lucide-react";
 
 const softSkills = [
   {
@@ -36,41 +36,55 @@ const softSkills = [
     description: "Preocupação constante com otimização de sistemas, performance de APIs, eficiência de banco de dados e otimização de queries.",
     icon: Gauge,
   },
+  {
+    title: "Proatividade e Iniciativa",
+    description: "Atitude 'hands-on' na identificação de oportunidades de melhoria, propondo novas arquiteturas ou automações antes mesmo dos problemas se tornarem críticos.",
+    icon: Zap,
+  },
+  {
+    title: "Gestão do Tempo",
+    description: "Habilidade consolidada para priorizar demandas e organizar entregas técnicas complexas mantendo um fluxo contínuo e pragmático para o negócio.",
+    icon: Clock,
+  },
 ];
 
 const SoftSkillsSection = () => {
   return (
-    <section id="soft-skills" className="min-h-screen flex items-center section-glow py-24">
+    <section id="soft-skills" className="min-h-screen flex items-center section-glow py-24 mb-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-4">
-            <h2 className="font-heading text-3xl md:text-4xl font-medium text-foreground">
-              Soft<br />Skills
-            </h2>
-          </div>
-          <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {softSkills.map((skill) => {
-                const Icon = skill.icon;
-                return (
-                  <div
-                    key={skill.title}
-                    className="group relative p-6 border border-border rounded-lg transition-all hover:border-primary/50 hover:bg-card/50"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <Icon size={20} className="text-primary" />
-                    </div>
-                    <h3 className="font-heading text-base font-medium text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {skill.title}
-                    </h3>
-                    <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                      {skill.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+        <div className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <h2 className="font-heading text-3xl md:text-4xl font-medium text-foreground flex items-center gap-3">
+            <Brain className="text-primary" size={32} />
+            Soft Skills
+          </h2>
+          <div className="h-1 w-20 bg-primary mt-4 rounded-full"></div>
+          <p className="text-muted-foreground mt-6 text-lg max-w-2xl font-body">
+            Competências comportamentais evoluídas ao longo dos anos para garantir o sucesso e a entrega de valor real aos projetos corporativos.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {softSkills.map((skill, index) => {
+            const Icon = skill.icon;
+            const delayClass = `delay-[${(index + 1) * 100}ms]`;
+            
+            return (
+              <div
+                key={skill.title}
+                className={`group flex flex-col p-6 bg-card/20 border border-border/40 rounded-2xl transition-all duration-300 hover:bg-card/40 hover:border-primary/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] animate-in fade-in slide-in-from-bottom-8 duration-700 ${delayClass}`}
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <Icon size={24} className="text-primary" />
+                </div>
+                <h3 className="font-heading text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {skill.title}
+                </h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed mt-auto">
+                  {skill.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

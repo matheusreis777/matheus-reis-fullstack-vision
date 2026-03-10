@@ -43,7 +43,14 @@ const ParticleNetwork = () => {
       }
     };
 
+    const handleResize = () => {
+      resize();
+      initParticles();
+    };
+
     const draw = () => {
+      if (!isVisible) return;
+
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
@@ -87,16 +94,27 @@ const ParticleNetwork = () => {
 
     resize();
     initParticles();
-    draw();
 
-    window.addEventListener("resize", () => {
-      resize();
-      initParticles();
-    });
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries[0].isIntersecting;
+        if (isVisible) {
+          // Restart animation if it was paused
+          cancelAnimationFrame(animationId);
+          draw();
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
     };
   }, []);
 

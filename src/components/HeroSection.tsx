@@ -16,17 +16,17 @@ const HeroSection = () => {
             <span className="text-primary">Mendonça</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground font-body leading-relaxed mb-4 max-w-2xl">
-            Desenvolvedor Fullstack com forte base em backend <span className="text-foreground">.NET</span>, banco de dados e integrações entre sistemas.
+            Desenvolvedor Fullstack com forte especialização em backend utilizando <span className="text-foreground">C#</span> e <span className="text-foreground">.NET</span>, com sólida experiência no desenvolvimento de <span className="text-foreground">APIs REST</span> escaláveis, integrações entre sistemas e aplicações corporativas.
           </p>
           <p className="text-base text-muted-foreground font-body leading-relaxed mb-10 max-w-2xl">
-            Especializado em criar APIs REST escaláveis, implementar regras de negócio complexas e construir soluções robustas para aplicações corporativas com <span className="text-foreground">Angular</span>, <span className="text-foreground">JavaScript</span> e <span className="text-foreground">React Native</span>.
+            Atuo na construção de soluções completas, desde a modelagem e otimização de banco de dados até o desenvolvimento de interfaces modernas com <span className="text-foreground">Angular</span>, <span className="text-foreground">JavaScript</span> e aplicações mobile com <span className="text-foreground">React Native</span>, sempre com foco em performance, escalabilidade e qualidade de código.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="https://wa.me/5567991431860"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 font-heading text-sm font-medium tracking-wide transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-[10px] font-heading text-sm font-medium tracking-wide transition-all hover:opacity-90 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1"
             >
               <Mail size={16} />
               Entrar em contato
@@ -35,7 +35,7 @@ const HeroSection = () => {
               href="https://www.linkedin.com/in/matheus-reis-584098306"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-3 font-heading text-sm font-medium tracking-wide transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center justify-center gap-2 border border-border text-foreground px-8 py-3 rounded-[10px] font-heading text-sm font-medium tracking-wide transition-all hover:border-primary hover:text-primary hover:bg-primary/5 hover:-translate-y-1"
             >
               <Linkedin size={16} />
               Ver LinkedIn
@@ -43,7 +43,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="absolute right-12 top-1/4 bottom-1/4 w-px bg-border hidden lg:block" />
+      
     </section>
   );
 };

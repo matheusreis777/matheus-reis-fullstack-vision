@@ -7,30 +7,36 @@ const CustomCursor = () => {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
+    let rafId: number;
+
     const move = (e: MouseEvent) => {
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        cursor.style.setProperty("--x", `${e.clientX}px`);
+        cursor.style.setProperty("--y", `${e.clientY}px`);
+      });
     };
 
     const addHover = () => cursor.classList.add("hovering");
     const removeHover = () => cursor.classList.remove("hovering");
 
-    document.addEventListener("mousemove", move);
-
-    const observe = () => {
-      document.querySelectorAll("a, button, [role='button']").forEach((el) => {
-        el.addEventListener("mouseenter", addHover);
-        el.addEventListener("mouseleave", removeHover);
-      });
+    // Use event delegation on document.body instead of querying all elements repeatedly
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest("a, button, [role='button']")) {
+        addHover();
+      } else {
+        removeHover();
+      }
     };
 
-    observe();
-    const observer = new MutationObserver(observe);
-    observer.observe(document.body, { childList: true, subtree: true });
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseover", handleMouseOver);
 
     return () => {
       document.removeEventListener("mousemove", move);
-      observer.disconnect();
+      document.removeEventListener("mouseover", handleMouseOver);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 

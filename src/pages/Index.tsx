@@ -1,25 +1,27 @@
-import CustomCursor from "@/components/CustomCursor";
+import React, { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import HardSkillsSection from "@/components/HardSkillsSection";
-import SoftSkillsSection from "@/components/SoftSkillsSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const HardSkillsSection = lazy(() => import("@/components/HardSkillsSection"));
+const SoftSkillsSection = lazy(() => import("@/components/SoftSkillsSection"));
+const ExperienceSection = lazy(() => import("@/components/ExperienceSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 const Index = () => {
   return (
     <>
-      <CustomCursor />
       <Navbar />
       <main className="pt-16">
         <HeroSection />
-        <AboutSection />
-        <HardSkillsSection />
-        <SoftSkillsSection />
-        <ExperienceSection />
-        <ContactSection />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center section-glow"><div className="w-8 h-8 rounded-full border-t-2 border-primary animate-spin"></div></div>}>
+          <AboutSection />
+          <HardSkillsSection />
+          <SoftSkillsSection />
+          <ExperienceSection />
+          <ContactSection />
+        </Suspense>
       </main>
       <Footer />
     </>

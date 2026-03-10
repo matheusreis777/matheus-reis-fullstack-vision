@@ -1,0 +1,17 @@
+import { MessageCircle } from "lucide-react";
+
+const FloatingWhatsApp = () => {
+  return (
+    <a
+      href="https://wa.me/5567991431860"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg shadow-green-500/30 transition-all duration-300 hover:scale-110 hover:shadow-green-500/50 animate-in fade-in slide-in-from-bottom-12 delay-500"
+      aria-label="Falar pelo WhatsApp"
+    >
+      <MessageCircle size={28} />
+    </a>
+  );
+};
+
+export default FloatingWhatsApp;
