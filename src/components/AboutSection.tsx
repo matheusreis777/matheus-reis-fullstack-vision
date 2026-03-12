@@ -128,17 +128,19 @@ const AboutSection = () => {
                   <p className="text-muted-foreground text-sm font-body mt-1 mb-4">Minha trajetória detalhada e qualificações.</p>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-3">
                     <Button 
-                      variant="outline" 
+                      variant="secondary" 
                       size="sm" 
-                      className="bg-background/50 border-border/50 hover:border-primary/50"
-                      onClick={() => window.open('/MATHEUS REIS MENDONÇA - CURRICULO.pdf', '_blank')}
+                      asChild
+                      className="bg-primary/10 hover:bg-primary/20 text-primary border-primary/20"
                     >
-                      Visualizar
-                    </Button>
-                    <Button variant="secondary" size="sm" asChild>
-                      <a href="/MATHEUS REIS MENDONÇA - CURRICULO.pdf" download className="flex items-center gap-2">
-                        <Download size={16} />
-                        Baixar
+                      <a 
+                        href="/MATHEUS REIS MENDONÇA - CURRICULO.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <FileText size={16} />
+                        Acessar Currículo
                       </a>
                     </Button>
                   </div>
@@ -155,17 +157,19 @@ const AboutSection = () => {
                   <p className="text-muted-foreground text-sm font-body mt-1 mb-4">Análise e Desenvolvimento de Sistemas.</p>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-3">
                     <Button 
-                      variant="outline" 
+                      variant="secondary" 
                       size="sm" 
-                      className="bg-background/50 border-border/50 hover:border-primary/50"
-                      onClick={() => window.open('/DiplomaDigital-ADS-MatheusReisMendonca.pdf', '_blank')}
+                      asChild
+                      className="bg-primary/10 hover:bg-primary/20 text-primary border-primary/20"
                     >
-                      Visualizar
-                    </Button>
-                    <Button variant="secondary" size="sm" asChild>
-                      <a href="/DiplomaDigital-ADS-MatheusReisMendonca.pdf" download className="flex items-center gap-2">
-                        <Download size={16} />
-                        Baixar
+                      <a 
+                        href="/DiplomaDigital-ADS-MatheusReisMendonca.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <GraduationCap size={16} />
+                        Acessar Diploma
                       </a>
                     </Button>
                   </div>
