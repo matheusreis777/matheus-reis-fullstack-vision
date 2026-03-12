@@ -1,4 +1,4 @@
-import { ExternalLink, Code2, Globe, Smartphone } from "lucide-react";
+import { ExternalLink, Code2, Globe, Smartphone, LayoutGrid } from "lucide-react";
 
 const projects = [
   {
@@ -22,6 +22,14 @@ const projects = [
     link: "#",
     status: "Em aprovação na Play Store",
     icon: Smartphone,
+  },
+  {
+    title: "Under Control",
+    description: "Uma vitrine de soluções digitais de alta performance projetadas para otimizar processos e maximizar resultados.",
+    tech: ["Next.js", ".NET", "TypeScript", "Tailwind CSS"],
+    link: "https://www.undercontrol.online",
+    status: "Em desenvolvimento",
+    icon: LayoutGrid,
   },
 ];
 
@@ -50,21 +58,24 @@ const ProjectsSection = () => {
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/20">
                   <project.icon size={24} className="text-primary" />
                 </div>
-                {project.status ? (
-                  <span className="text-[10px] font-heading font-semibold uppercase tracking-wider px-2 py-1 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20">
-                    {project.status}
-                  </span>
-                ) : (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
-                    aria-label={`Ver projeto ${project.title}`}
-                  >
-                    <ExternalLink size={20} />
-                  </a>
-                )}
+                <div className="flex items-center gap-2">
+                  {project.status && (
+                    <span className="text-[10px] font-heading font-semibold uppercase tracking-wider px-2 py-1 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                      {project.status}
+                    </span>
+                  )}
+                  {project.link !== "#" && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
+                      aria-label={`Ver projeto ${project.title}`}
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                </div>
               </div>
               
               <h3 className="font-heading text-xl font-medium text-foreground mb-3 group-hover:text-primary transition-colors">
