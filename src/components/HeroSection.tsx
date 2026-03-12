@@ -15,10 +15,10 @@ const HeroSection = () => {
             <br />
             <span className="text-primary">Mendonça</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground font-body leading-relaxed mb-4 max-w-2xl">
+          <p className="text-lg md:text-xl text-muted-foreground font-body leading-relaxed mb-4 max-w-2xl text-justify">
             Desenvolvedor Fullstack com forte especialização em backend utilizando a plataforma <span className="text-foreground">.NET</span> e a linguagem <span className="text-foreground">C#</span>, com sólida experiência no desenvolvimento de <span className="text-foreground">APIs REST</span> escaláveis, integrações entre sistemas e aplicações corporativas.
           </p>
-          <p className="text-base text-muted-foreground font-body leading-relaxed mb-10 max-w-2xl">
+          <p className="text-base text-muted-foreground font-body leading-relaxed mb-10 max-w-2xl text-justify">
             Atuo na construção de soluções completas, desde a modelagem e otimização de banco de dados até o desenvolvimento de interfaces modernas com <span className="text-foreground">Angular</span>, <span className="text-foreground">JavaScript</span> e aplicações mobile com <span className="text-foreground">React Native</span>, sempre com foco em performance, escalabilidade e qualidade de código.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
